@@ -1,0 +1,64 @@
+#Task_4_Rock-Paper-Scissors-game_Shweta Sunilkumar
+
+import random
+u=0
+c=0
+rps = {1:"Rock🪨",2:"Paper📃", 3:"Scissors✂️"}
+def allot():
+    global u
+    global c
+    comp = random.randint(1,3)
+    print("1- 🪨  \t 2-📃 \t 3-✂️")
+    user = int(input("Enter (1, 2 or 3): "))
+    print("You: ", rps[user])
+    print("Comp: ", rps[comp])
+    if (user == 1):
+        if(comp == 2):
+            print("\nComputer Wins.")
+            c+=1
+        if(comp == 3):
+            print("\nYou Win!")
+            u+=1
+    if (user == 2):
+        if(comp == 1):
+            print("\nYou Win!")
+            u+=1
+        if(comp == 3):
+            print("\nComputer Wins.")
+            c+=1
+    if (user == 3):
+        if(comp == 1):
+            print("\nComputer Wins.")
+            c+=1
+        if(comp == 2):
+            print("\nYou Win!")
+            u+=1
+    if (user == comp):
+        print("\nTie!")
+
+print("\n\t~ 🪨 📃✂️  WELCOME TO THE ROCK PAPER SCISSORS GAME ✂️ 📃🪨 ~")
+print("\nThe rules are simple:\n\n  • Rock beats scissors.    • Scissors beat paper.     • Paper beats rock")
+print("\n1. Single game\t\t 2.Multigame scored rounds")
+round = int(input("What type of game would you like to play? (1/2) => "))
+if round == 1:
+    f = "y"
+    while(f!="n"):
+        allot()
+        f = input("\nAgain?(n for no) ")
+        print("_______________________________")
+if round == 2:
+    f = "y"
+    while (f!="n") :
+        n = int(input("What is the max number of games(eg: 5 or 10): "))
+        for i in range(n):
+            allot()
+            print("_______________________________")
+        print("You: ", u)
+        print("Computer: ", c)
+        if u>c:
+            print("You won the round! ")
+        if u==c:
+            print("TIE! ")
+        else:
+            print("The Computer won the round! ")
+        f = input("Another round?(n for no) ")
